@@ -6,6 +6,9 @@ export default defineConfig({
   plugins: [react()],
   // 重要：這裡必須跟您的 GitHub Repository 名稱一樣
   base: '/kyoto-osaka-trip/',
+  define: {
+    'process.env': {}
+  },
   build: {
     outDir: 'dist',
   }
