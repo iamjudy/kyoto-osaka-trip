@@ -1,0 +1,487 @@
+/* style.css - 終極升級版：日式極簡 App Vibe (參考九州範例) */
+
+:root {
+    /* 顏色調色盤：更極簡、更自然、更像 App */
+    --color-background: #F8F8F8; /* 接近純白，極致留白 */
+    --color-text-dark: #333333;  /* 深黑/主文本 */
+    --color-text-light: #A0A0A0; /* 淺灰/輔助文本 */
+    --color-accent-green: #5E8C78; /* 森林綠/強調色 */
+    --color-border-light: #EBEBEB; /* 極細邊框線 */
+    --color-card-bg-light: #FFFFFF; /* 卡片背景純白 */
+    --color-shadow: rgba(0, 0, 0, 0.05); /* 極輕微陰影 */
+    --color-active-date-bg: #404040; /* 選中日期背景色 */
+    --color-active-date-text: #FFFFFF; /* 選中日期文字色 */
+}
+
+/* 全局設定 */
+body {
+    font-family: 'Noto Sans TC', 'Noto Sans JP', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* 字體抗鋸齒 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif TC', 'Noto Serif JP', Georgia, serif;
+    color: var(--color-text-dark);
+}
+
+.container {
+    max-width: 420px; /* 針對 iPhone 尺寸進行優化 */
+    margin: 0 auto;
+    padding: 0;
+    box-shadow: 0 0 10px var(--color-shadow); /* 模擬 App 邊框 */
+    min-height: 100vh; /* 確保內容區塊至少填滿整個螢幕 */
+    background-color: var(--color-background);
+    position: relative; /* 為了 "第一天" 絕對定位 */
+}
+
+/* --- App Style Header --- */
+.app-header {
+    text-align: center;
+    padding: 30px 0 20px;
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 50;
+}
+
+.app-header {
+    text-align: center;
+    padding: 30px 0 20px;
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 50;
+    /* 增加左右內邊距，防止標題太靠邊 */
+    padding: 30px 20px 20px; 
+}
+
+.app-header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.8rem;
+    margin: 0 0 10px;
+}
+
+.app-header .year-badge {
+    display: inline-block;
+    background-color: #E0E0E0;
+    color: var(--color-text-dark);
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* --- 頂部日期滑動導航 (類似範例風格) --- */
+.date-navigation {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 10px;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.date-nav-item {
+    /* 調整為更寬扁的結構 */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 10px; /* 增加上下 padding */
+    margin: 0 3px; /* 減少左右間距 */
+    border-radius: 6px; /* 調整圓角 */
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+    min-width: 60px; /* 確保日期項目有足夠寬度 */
+    box-sizing: border-box;
+}
+
+.date-nav-item .day-text {
+    /* 調整為星期 + 月份的組合 */
+    font-size: 0.75rem; 
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-weight: 600; 
+    margin-bottom: 2px;
+}
+
+.date-nav-item .day-num {
+    /* 日期數字 (14, 15) */
+    font-size: 1.4rem; /* 稍微大一點 */
+    font-weight: 400; /* 數字變細 */
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+.date-nav-item .day-text {
+    /* 調整為星期 + 月份的組合 */
+    font-size: 0.75rem; 
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-weight: 600; 
+    margin-bottom: 2px;
+}
+
+.date-nav-item.active .month-text {
+    color: var(--color-active-date-text);
+}
+
+.date-nav-item.active {
+    background-color: var(--color-active-date-bg); /* 深灰色背景 */
+    color: var(--color-active-date-text); /* 白色文字 */
+    border-radius: 8px; /* 圓角矩形選中框 */
+}
+.date-nav-item.active .day-text {
+    color: var(--color-active-date-text);
+}
+
+
+/* --- 單日行程卡片 (App View) --- */
+.itinerary-day-card {
+    padding: 0 0 80px 0; /* 底部留出空間給底部導航 */
+    position: relative;
+}
+
+.itinerary-day-card.active-day {
+    display: block;
+}
+
+/* 「第一天」側邊標籤 */
+.day-label {
+    position: absolute;
+    top: 150px; /* 調整位置 */
+    left: 20px;
+    transform: rotate(-90deg) translateY(-100%);
+    transform-origin: top left;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+
+/* --- 首屏景點大卡片 (範例中的熊本地區) --- */
+.main-feature-card {
+    background-color: var(--color-card-bg-light);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 40px 20px 25px 20px; /* 邊距調整 */
+    box-shadow: 0 5px 15px var(--color-shadow);
+    position: relative;
+    height: 250px; /* 固定高度 */
+}
+
+.main-feature-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 圖片填滿容器 */
+    filter: brightness(0.7); /* 圖片略暗 */
+}
+
+.main-feature-card .card-overlay-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 20;
+}
+.main-feature-card .card-overlay-content .day-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+    backdrop-filter: blur(2px);
+}
+.main-feature-card h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 1.3;
+}
+.main-feature-card .location {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+}
+
+
+/* --- 天氣預報區塊 (類似範例風格) --- */
+.weather-forecast {
+    background-color: var(--color-card-bg-light);
+    border-radius: 12px;
+    margin: 0 20px 25px 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+}
+.weather-forecast h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-text-dark);
+}
+.weather-forecast .forecast-hourly {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.forecast-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forecast-item .time {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+.forecast-item .icon i {
+    font-size: 1.8rem;
+    color: #FFC107; /* 陽光黃 */
+    margin: 5px 0;
+}
+.forecast-item .temp {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.weather-forecast .source {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    text-align: right;
+    margin-top: 15px;
+}
+
+
+/* --- 單獨活動卡片 (日式極簡，類似範例中的午餐卡片) --- */
+.activity-item-card {
+    background-color: var(--color-card-bg-light);
+    border-radius: 12px;
+    margin: 0 20px 15px 20px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px var(--color-shadow);
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    position: relative;
+}
+
+.activity-item-card .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #F0F0F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+.activity-item-card .icon-placeholder i {
+    font-size: 1.2rem;
+    color: var(--color-accent-green);
+}
+
+.activity-item-card .content {
+    flex-grow: 1;
+}
+.activity-item-card .content h4 {
+    font-family: 'Noto Sans TC', sans-serif; /* 活動名稱使用無襯線字體 */
+    font-size: 1rem;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.3;
+}
+.activity-item-card .content p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 3px 0 0;
+}
+.activity-item-card .time-info {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    text-align: right;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+.activity-item-card .time-info .start-time {
+    font-weight: bold;
+    color: var(--color-text-dark);
+    font-size: 1rem;
+}
+.activity-item-card .time-info .duration-label {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 2px;
+}
+
+/* 導航按鈕在卡片內部 */
+.activity-item-card .nav-button-inline {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    background-color: var(--color-accent-green);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.activity-item-card .nav-button-inline i {
+    margin-right: 5px;
+}
+.activity-item-card .nav-button-inline:hover {
+    background-color: #4C7765;
+}
+
+
+/* --- 導遊職責：標籤亮顯 Vibe --- */
+.highlight-food {
+    color: #C66A6A; /* 柔和紅/美食 */
+    font-weight: bold;
+}
+.highlight-key {
+    color: #4A90E2; /* 藍色/重要代碼 */
+    font-weight: bold;
+    background-color: #F0F5FA;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'SF Mono', 'Consolas', monospace; /* 程式碼字體 */
+}
+.highlight-tip {
+    color: #B5A08A; /* 棕色/故事攻略 */
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-top: 8px;
+    display: block;
+    line-height: 1.4;
+}
+.highlight-souvenir { /* 新增伴手禮標籤 */
+    color: #8D6E63; /* 深棕色 */
+    font-weight: bold;
+    background-color: #F8F0EC;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+
+/* --- 底部工具分頁導航 (固定在底部，App 樣式) --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%; /* 確保在 container 居中 */
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 402px; /* 匹配 container 寬度 */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+    z-index: 1000; /* 確保在最上層 */
+    height: 60px;
+    border-top-left-radius: 15px; /* 圓潤邊角 */
+    border-top-right-radius: 15px;
+}
+.bottom-nav a {
+    text-align: center;
+    color: #999;
+    text-decoration: none;
+    padding: 5px 0;
+    flex-grow: 1;
+    font-size: 0.7rem; /* 文字更小 */
+    transition: color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bottom-nav a i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+.bottom-nav a.active {
+    color: var(--color-accent-green);
+}
+
+/* 確保內容不會被底部導航遮擋 */
+body {
+    padding-bottom: 60px;
+}
+
+/* 隱藏桌面版元素 */
+@media (min-width: 769px) {
+    .date-navigation, .main-section, .bottom-nav {
+        display: none !important;
+    }
+    .container {
+        display: none; /* 桌面版隱藏整個 App 模擬 */
+    }
+    body {
+        /* 如果有需要，可以顯示一個「請用手機瀏覽」的提示 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 1.5rem;
+        color: var(--color-text-dark);
+    }
+    body::before {
+        content: "請使用手機或縮小瀏覽器視窗預覽。";
+    }
+}
+
+/* 其他工具區塊樣式 */
+.main-section {
+    padding-top: 20px;
+}
+.section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.info-block {
+    background-color: var(--color-card-bg-light);
+    border-radius: 12px;
+    margin: 0 20px 15px 20px;
+    padding: 20px;
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+.info-block h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--color-accent-green);
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.info-block p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+.info-block a {
+    color: var(--color-accent-green);
+    text-decoration: none;
+    font-weight: bold;
+}
