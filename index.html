@@ -1,408 +1,72 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>京阪緩行 | FAMILY TRIP</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>京阪神快樂遊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'sakura': {
+                50: '#fff1f2',
+                100: '#ffe4e6',
+                200: '#fecdd3',
+                300: '#fda4af',
+                400: '#fb7185',
+                500: '#f43f5e',
+                600: '#e11d48',
+              },
+              'matcha': {
+                50: '#f2fcf5',
+                100: '#e6f7eb',
+                500: '#22c55e',
+                600: '#16a34a',
+                700: '#15803d',
+              }
+            },
+            fontFamily: {
+              sans: ['Noto Sans TC', 'Microsoft JhengHei', 'sans-serif'],
+              serif: ['Noto Serif TC', 'serif'],
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Hide scrollbar for cleaner mobile UI */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      body {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-    <div class="container">
-        <div class="app-header">
-            <p class="family-trip-label">FAMILY TRIP</p>
-            <h1>京阪緩行 <span class="year-badge">2025</span></h1>
-        </div>
-
-        <nav class="date-navigation" id="dateNav">
-            <a href="#day1-anchor" class="date-nav-item active" data-day="day1">
-                <span class="day-text">WED</span> 
-                <span class="day-num">17</span>
-                <span class="month-text">Dec.</span>
-            </a>
-            <a href="#day2-anchor" class="date-nav-item" data-day="day2">
-                <span class="day-text">THU</span> 
-                <span class="day-num">18</span>
-                <span class="month-text">Dec.</span>
-            </a>
-            <a href="#day3-anchor" class="date-nav-item" data-day="day3">
-                <span class="day-text">FRI</span> 
-                <span class="day-num">19</span>
-                <span class="month-text">Dec.</span>
-            </a>
-            <a href="#day4-anchor" class="date-nav-item" data-day="day4">
-                <span class="day-text">SAT</span> 
-                <span class="day-num">20</span>
-                <span class="month-text">Dec.</span>
-            </a>
-            <a href="#day5-anchor" class="date-nav-item" data-day="day5">
-                <span class="day-text">SUN</span> 
-                <span class="day-num">21</span>
-                <span class="month-text">Dec.</span>
-            </a>
-            <a href="#day6-anchor" class="date-nav-item" data-day="day6">
-                <span class="day-text">MON</span> 
-                <span class="day-num">22</span>
-                <span class="month-text">Dec.</span>
-            </a>
-        </nav>
-
-        <div id="itinerary" class="main-section active-section">
-            <div id="itinerary-content">
-                
-                <div id="day1" class="itinerary-day-card active-day">
-                    <div id="day1-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-
-                    <div class="day-label">第一天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**京都初見**</p> 
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/B9D3C2/FFFFFF?text=Kyoto+Arriving" alt="京都抵達">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 1</span>
-                            <h2>關西機場 & 京都車站</h2>
-                            <p class="location">京都府</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>京都市 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Open-Meteo</span></h3>
-                        <div class="forecast-hourly">
-                            <div class="forecast-item"><span class="time">現在</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">9°</span></div>
-                            <div class="forecast-item"><span class="time">01:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">8°</span></div>
-                            <div class="forecast-item"><span class="time">02:00</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">8°</span></div>
-                            <div class="forecast-item"><span class="time">03:00</span><span class="icon"><i class="fas fa-cloud-rain"></i></span><span class="temp">7°</span></div>
-                            <div class="forecast-item"><span class="time">04:00</span><span class="icon"><i class="fas fa-cloud-showers-heavy"></i></span><span class="temp">7°</span></div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-plane-arrival"></i></div>
-                        <div class="content">
-                            <h4>入境關西機場T1</h4>
-                            <p>約 17:00 抵達 KIX。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>Haruka 車票可在機場購買或兌換，出發前確認。</p>
-                            <a href="#" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至此</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">17:00</span>
-                            <span class="duration-label">抵達</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-subway"></i></div>
-                        <div class="content">
-                            <h4>搭乘JR HARUKA前往京都</h4>
-                            <p>從機場搭乘 HARUKA 列車，直達京都車站。</p>
-                            <p>**預約代號：** <span class="highlight-key">KIXHARUKA9812</span></p>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">18:30</span>
-                            <span class="duration-label">約 75分</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-bed"></i></div>
-                        <div class="content">
-                            <h4>入住三井花園飯店 京都四條</h4>
-                            <p>辦理入住手續，稍作休息。</p>
-                            <p><a href="https://maps.app.goo.gl/eKNtsDVV9RgUmwnQ9" target="_blank">查看飯店地圖</a></p>
-                            <p><span class="highlight-tip">導遊提示：</span>飯店附近有便利店和輕食選擇，可在此處補充零食。</p>
-                            <a href="https://maps.app.goo.gl/eKNtsDVV9RgUmwnQ9" target="_blank" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至此</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">20:00</span>
-                            <span class="duration-label">入住</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="day2" class="itinerary-day-card active-day">
-                    <div id="day2-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-                    <div class="day-label">第二天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**京都漫遊**</p>
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/C2D3B9/FFFFFF?text=Kyoto+Food" alt="京都美食">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 2</span>
-                            <h2>叙々苑與京都街景</h2>
-                            <p class="location">京都府</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>京都市 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Open-Meteo</span></h3>
-                        <div class="forecast-hourly">
-                            <div class="forecast-item"><span class="time">現在</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">12°</span></div>
-                            <div class="forecast-item"><span class="time">13:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">13°</span></div>
-                            <div class="forecast-item"><span class="time">14:00</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">13°</span></div>
-                            <div class="forecast-item"><span class="time">15:00</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">12°</span></div>
-                            <div class="forecast-item"><span class="time">16:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">11°</span></div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-utensils"></i></div>
-                        <div class="content">
-                            <h4>叙々苑 游玄亭 京都 午宴</h4>
-                            <p>**預約時間：** <span class="highlight-key">12月18日（木）12:30</span></p>
-                            <p>**必點菜單：** <span class="highlight-food">游玄亭特選午餐套餐</span>，確保爸媽能吃到招牌和牛。</p>
-                            <a href="https://restaurant.ikyu.com/me/reservations/IR0502164545" target="_blank">查看預約連結</a>
-                            <a href="#" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至此</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">12:30</span>
-                            <span class="duration-label">約 90分</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-street-view"></i></div>
-                        <div class="content">
-                            <h4>京都街景散步 / 自由活動</h4>
-                            <p>依照午餐後心情和體力彈性安排。適合文青漫步。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>京都的下午茶文化也相當豐富，可找間日式甜點店休息。例如：<span class="highlight-food">茶寮都路里</span> 的抹茶甜點。</p>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">14:30</span>
-                            <span class="duration-label">自由</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="day3" class="itinerary-day-card active-day">
-                    <div id="day3-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-                    <div class="day-label">第三天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**奈良鹿與清水寺**</p>
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/C2B9D3/FFFFFF?text=Nara+Kiyomizu" alt="清水寺與奈良">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 3</span>
-                            <h2>清水寺與奈良一日遊</h2>
-                            <p class="location">京都/奈良</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>京都/奈良 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Open-Meteo</span></h3>
-                        <div class="forecast-hourly">
-                            <div class="forecast-item"><span class="time">08:00</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">10°</span></div>
-                            <div class="forecast-item"><span class="time">12:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">14°</span></div>
-                            <div class="forecast-item"><span class="time">15:00</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">13°</span></div>
-                            <div class="forecast-item"><span class="time">18:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">10°</span></div>
-                            <div class="forecast-item"><span class="time">21:00</span><span class="icon"><i class="fas fa-moon"></i></span><span class="temp">7°</span></div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-bus"></i></div>
-                        <div class="content">
-                            <h4>Klook 清水寺奈良一日遊集合</h4>
-                            <p>已預訂巴士行程，請務必準時抵達**京都車站**集合地點。</p>
-                            <p>**Klook 憑證：** <span class="highlight-key">KLOOKNARADAY3</span></p>
-                            <a href="#" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至集合地點</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">08:30</span>
-                            <span class="duration-label">集合</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-paw"></i></div>
-                        <div class="content">
-                            <h4>奈良公園與東大寺</h4>
-                            <p>與可愛的鹿群互動，參觀莊嚴的東大寺。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>鹿仙貝約 200 日圓，但餵食時請注意鹿群衝撞！東大寺是世界最大木造建築。</p>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">中午</span>
-                            <span class="duration-label">約 3.5 hrs</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-archway"></i></div>
-                        <div class="content">
-                            <h4>清水寺與二/三年坂</h4>
-                            <p>探索清水坂，選購伴手禮。</p>
-                            <p>**必買伴手禮：** <span class="highlight-souvenir">生八橋</span> (八つ橋) 和 <span class="highlight-souvenir">清水燒</span> 陶瓷。</p>
-                            <a href="#" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至清水寺</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">下午</span>
-                            <span class="duration-label">約 2 hrs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="day4" class="itinerary-day-card active-day">
-                    <div id="day4-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-                    <div class="day-label">第四天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**姬路/待定**</p>
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/C2D3D3/FFFFFF?text=Day+4+Placeholder" alt="姬路城">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 4</span>
-                            <h2>姬路/大阪移動日</h2>
-                            <p class="location">規劃中...</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>姬路市 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Placeholder</span></h3>
-                        <div class="forecast-hourly">
-                             <div class="forecast-item"><span class="time">上午</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">10°</span></div>
-                            <div class="forecast-item"><span class="time">中午</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">12°</span></div>
-                            <div class="forecast-item"><span class="time">下午</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">13°</span></div>
-                            <div class="forecast-item"><span class="time">傍晚</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">11°</span></div>
-                            <div class="forecast-item"><span class="time">晚上</span><span class="icon"><i class="fas fa-moon"></i></span><span class="temp">8°</span></div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-question"></i></div>
-                        <div class="content">
-                            <h4>行程安排中</h4>
-                            <p>主要行程：姬路城一日遊，或大阪市區購物。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>請確認住宿是否需要更換，以及行李運送事宜。</p>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">全天</span>
-                            <span class="duration-label">待定</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="day5" class="itinerary-day-card active-day">
-                    <div id="day5-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-                    <div class="day-label">第五天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**城市探索**</p>
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/D3C2D3/FFFFFF?text=Day+5+Placeholder" alt="大阪市景">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 5</span>
-                            <h2>大阪自由行</h2>
-                            <p class="location">規劃中...</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>大阪市 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Placeholder</span></h3>
-                        <div class="forecast-hourly">
-                            <div class="forecast-item"><span class="time">上午</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">11°</span></div>
-                            <div class="forecast-item"><span class="time">中午</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">14°</span></div>
-                            <div class="forecast-item"><span class="time">下午</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">15°</span></div>
-                            <div class="forecast-item"><span class="time">傍晚</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">12°</span></div>
-                            <div class="forecast-item"><span class="time">晚上</span><span class="icon"><i class="fas fa-moon"></i></span><span class="temp">9°</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-shopping-bag"></i></div>
-                        <div class="content">
-                            <h4>自由購物或景點參觀</h4>
-                            <p>推薦難波或心齋橋，爸媽可在此採買禮品。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>藥妝店價格變化快，可多比較幾家。</p>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">全天</span>
-                            <span class="duration-label">自由</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="day6" class="itinerary-day-card active-day">
-                    <div id="day6-anchor" style="position: absolute; top: 0; padding-top: 100px; margin-top: -100px;"></div>
-                    <div class="day-label">第六天</div>
-                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px;">**賦歸**</p>
-
-                    <div class="main-feature-card">
-                        <img src="https://via.placeholder.com/402x250/C2D3D3/FFFFFF?text=Kansai+Departure" alt="關西機場">
-                        <div class="card-overlay-content">
-                            <span class="day-badge">Day 6</span>
-                            <h2>啟程回程</h2>
-                            <p class="location">關西國際機場 (KIX)</p>
-                        </div>
-                    </div>
-
-                    <div class="weather-forecast">
-                        <h3>關西機場 即時天氣預報 <span style="font-size:0.7rem; color:var(--color-text-light);">Placeholder</span></h3>
-                        <div class="forecast-hourly">
-                            <div class="forecast-item"><span class="time">07:00</span><span class="icon"><i class="fas fa-cloud"></i></span><span class="temp">8°</span></div>
-                            <div class="forecast-item"><span class="time">09:00</span><span class="icon"><i class="fas fa-cloud-sun"></i></span><span class="temp">10°</span></div>
-                            <div class="forecast-item"><span class="time">11:00</span><span class="icon"><i class="fas fa-sun"></i></span><span class="temp">12°</span></div>
-                            <div class="forecast-item"><span class="time">13:00</span><span class="icon"><i class="fas fa-plane-departure"></i></span><span class="temp">13°</span></div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item-card">
-                        <div class="icon-placeholder"><i class="fas fa-bus"></i></div>
-                        <div class="content">
-                            <h4>前往關西機場</h4>
-                            <p>依據航班時間，提早前往 KIX 辦理登機手續。</p>
-                            <p><span class="highlight-tip">導遊提示：</span>建議提早至少 3 小時抵達機場。</p>
-                            <a href="#" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 導航至 KIX</a>
-                        </div>
-                        <div class="time-info">
-                            <span class="start-time">待定</span>
-                            <span class="duration-label">啟程</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="card-navigation" style="display: flex; justify-content: space-between; margin: 30px 20px;">
-                <button id="prevDayBtn" class="nav-button" style="width: 48%;">&larr; 上一天</button>
-                <button id="nextDayBtn" class="nav-button" style="width: 48%;">下一天 &rarr;</button>
-            </div>
-        </div> 
-
-        <div id="tools" class="main-section" style="display: none;">
-            <h2 class="section-title">💼 旅程工具箱</h2>
-
-            <div class="info-block">
-                <h3><i class="fas fa-plane"></i> 航班資訊</h3>
-                <p>✈️ **去程：** 2025/12/17 | TPE → KIX</p>
-                <p>✈️ **回程：** 2025/12/22 | KIX → TPE</p>
-                <p>**預算：** <span class="highlight-key">TWD $35,253.00</span> (已支付)</p>
-            </div>
-
-            <div class="info-block">
-                <h3><i class="fas fa-hotel"></i> 住宿資訊 (京都)</h3>
-                <p>🏠 **名稱：** 三井花園飯店 京都四條</p>
-                <p>**日期：** 12/17 ~ 12/19</p>
-                <p><a href="https://maps.app.goo.gl/eKNtsDVV9RgUmwnQ9" target="_blank">查看飯店地圖</a></p>
-            </div>
-
-            <div class="info-block">
-                <h3><i class="fas fa-map-marked-alt"></i> 共享地圖</h3>
-                <p>旅程中所有標記的地點。</p>
-                <a href="https://maps.app.goo.gl/p4EAWUmfgjMinWnr8" target="_blank" class="nav-button-inline"><i class="fas fa-location-arrow"></i> 開啟 Google 共享地圖</a>
-            </div>
-        </div> 
-
-        
-        </div> <nav class="bottom-nav">
-        <a href="#itinerary" class="bottom-nav-item active" data-target="itinerary">
-            <i class="fas fa-route"></i>行程
-        </a>
-        <a href="#tools" class="bottom-nav-item" data-target="tools">
-            <i class="fas fa-toolbox"></i>工具
-        </a>
-        <a href="accounting.html" class="bottom-nav-item" data-target="accounting">
-            <i class="fas fa-coins"></i>記帳
-        </a>
-    </nav>
-
-    <script src="assets/script.js"></script>
+  <body class="bg-stone-50 text-stone-800 antialiased selection:bg-sakura-200">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>

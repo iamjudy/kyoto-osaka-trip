@@ -1,0 +1,7 @@
+{
+  "name": "京阪神快樂遊",
+  "description": "專為家庭設計的京都大阪旅遊助手，包含行程瀏覽、簡單記帳與 AI 導遊功能。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
