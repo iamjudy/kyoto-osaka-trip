@@ -39,8 +39,7 @@ const App: React.FC = () => {
       </main>
 
       {/* Bottom Navigation */}
-      {/* Increased height, added padding-bottom, and removed the separate obscuring div */}
-      <nav className="sticky bottom-0 w-full bg-white border-t border-stone-200 pb-8 pt-3 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50">
+      <nav className="sticky bottom-0 w-full bg-white border-t border-stone-200 pb-4 pt-3 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50">
         <div className="flex justify-around items-center">
           <button
             onClick={() => setActiveTab(Tab.ITINERARY)}

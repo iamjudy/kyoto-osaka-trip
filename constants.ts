@@ -61,7 +61,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ]
   },
   {
-    dayTitle: "嵐山",
+    dayTitle: "嵐山風景與寺廟巡禮",
     date: "2025-12-18",
     weather: [
       { time: "08:00", temp: "7°", condition: "Sunny" },
@@ -76,7 +76,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     },
     events: [
       { time: "09:00", title: "嵐山", description: "林大道+野宮神社 / 天龍寺 / 嵐山大街+渡月橋", icon: "Landmark", image: "https://s3-ap-northeast-1.amazonaws.com/thegate/2021/02/10/12/19/48/Mt.Arashi.jpg", location: "嵐山"},
-      { time: "12:30", title: "叙々苑 游玄亭 京都", description: "妹妹生日媽咪請客吃燒肉！Wish her a happy birthday! 🎂", icon: "Gift", location: "游玄亭 京都",
+      { time: "12:30", title: "叙々苑 游玄亭 京都", description: "妹妹生日媽咪請客吃燒肉！🎂", icon: "Gift", location: "游玄亭 京都",
         notes: "[せんちくてい 預約詳情](https://restaurant.ikyu.com/me/reservations/IR0502164545)" },
       { time: "15:00", title: "下鴨神社", description: "御守很漂亮", icon: "Landmark", location: "下鴨神社"}
       
