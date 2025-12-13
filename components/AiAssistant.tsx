@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
 import { chatWithGemini } from '../services/aiService';
@@ -10,7 +11,7 @@ interface Message {
 
 export const AiAssistant: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'assistant', text: '阿北阿木好！我是這次來幫妹妹的專屬導遊。關於京都、大阪的行程、天氣或美食，都可以問我喔！🤗' }
+    { id: '1', role: 'assistant', text: '阿北阿木好！我是這次來幫妹妹的專屬導遊。關於京都、大阪的行程、天氣或美食，都可以問我喔！' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -107,7 +108,7 @@ export const AiAssistant: React.FC = () => {
       )}
 
       {/* Input Area */}
-      <div className="p-4 bg-white border-t border-stone-200 pb-24">
+      <div className="p-4 bg-white border-t border-stone-200 pb-4">
         <form onSubmit={handleSend} className="relative flex items-center gap-2">
           <input
             type="text"
