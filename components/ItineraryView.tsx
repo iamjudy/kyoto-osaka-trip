@@ -237,10 +237,22 @@ export const ItineraryView: React.FC = () => {
                 
                 <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 relative overflow-hidden group">
                   {/* Icon Watermark */}
-                  <div className="absolute -right-2 -bottom-2 text-stone-50 opacity-50 transform rotate-12 group-hover:scale-110 transition-transform">
+                  <div className="absolute -right-2 -bottom-2 text-stone-50 opacity-50 transform rotate-12 group-hover:scale-110 transition-transform pointer-events-none">
                      {event.icon && IconMap[event.icon] && 
                         React.cloneElement(IconMap[event.icon], { size: 64 } as any)}
                   </div>
+
+                  {/* Optional Image */}
+                  {event.image && (
+                    <div className="mb-3 rounded-xl overflow-hidden h-40 w-full relative bg-stone-100">
+                      <img 
+                        src={event.image} 
+                        alt={event.title} 
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
 
                   <h4 className={`text-base font-bold mb-1 relative z-10 font-serif ${event.highlight ? 'text-sakura-600' : 'text-stone-800'}`}>
                     {event.title}

@@ -58,6 +58,7 @@ export interface ItineraryEvent {
   description: string;
   location?: string;
   locationUrl?: string; // Support direct Google Maps URL
+  image?: string; // URL to an image for this event
   notes?: string; // New field for user custom notes/links
   icon?: string; // Icon name
   highlight?: boolean;

@@ -51,7 +51,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         title: "前往京都", 
         description: "搭乘 HARUKA 關空特急前往京都車站", 
         icon: "Train",
-        notes: "入境關西機場T1後，搭乘手扶梯上2樓 & 走空橋去關西機場車站 & 到 綠色售票機 換票\n\n（請查看 [HARUKA 實體票兌換說明](https://res.klook.com/image/upload/oct_AID18400_-_Redeem_Haruka_Ticket_l2vybu.pdf?spm=BookingDetail.Redemption%20information.Link&clickId=4934073335&_gl=1*1a3b7ul*_gcl_aw*R0NMLjE3NjMzMDUyODUuQ2owS0NRaUFpZWJJQmhEbUFSSXNBRThQR05MTUZqWkpCcUt0T2tFdy1QTE5PN1pIVHU0bmVPbzQzN3lEWjRzdTZfOTd2LXJkTDVNSEg1a2FBdnFfRUFMd193Y0I.*_gcl_au*MTIyNDM4MDc0My4xNzYxNzQ5MTE5*_ga*MTc5NzE0NjA0My4xNzMwMjg5NjUw*_ga_V8S4KC8ZXR*czE3NjUyOTMwMDckbzI0JGcxJHQxNzY1MjkzMTE1JGo1OSRsMCRoODU1OTAyNzM1)）\n\n[憑證下載 (PDF)](https://www.klook.com/klvoucher/YU11dWhZRGVVYWtvU3g4eGE5K1RrVzJRSGtSWExJVkl3dncxWmh0UEh2TTFJWTQ0eGJyVTNRK1JKRUhlRlJtYXlLb2JnVisxMFVtbG4wMzZuWDJ6QzNoRWkrL1kyYlNPTjFDYnFnSjlxOGs9.pdf)"
+        notes: "入境關西機場T1後，搭乘手扶梯上2樓 & 走空橋去關西機場車站 & 到 綠色售票機 換票\n\n（請查看 [HARUKA 實體票兌換說明](https://res.klook.com/image/upload/oct_AID18400_-_Redeem_Haruka_Ticket_l2vybu.pdf?spm=BookingDetail.Redemption%20information.Link&clickId=4934073335&_gl=1*1a3b7ul*_gcl_aw*R0NMLjE3NjMzMDUyODUuQ2owS0NRaUFpZWJJQmhEbUFSSXNBRThQR05MTUZqWkpCcUt0T2tFdy1QTE5PN1pIVHU0bmVPbzQzN3lEWjRzdTZfOTd2LXJkTDVNSEg1a2FBdnFfRUFMd193Y0I.*_gcl_au*MTIyNDM4MDc0My4xNzYxNzQ5MTE5*_ga*MTc5NzE0NjA0My4xNzMwMjg5NjUw*_ga_V8S4KC8ZXR*czE3NjUyOTMwMDckbzI0JGcxJHQxNzY1MjkzMTE1JGo1OSRsMCRoODU1OTAyNzM1)）\n\n[憑證](https://www.klook.com/klvoucher/YU11dWhZRGVVYWtvU3g4eGE5K1RrVzJRSGtSWExJVkl3dncxWmh0UEh2TTFJWTQ0eGJyVTNRK1JKRUhlRlJtYXlLb2JnVisxMFVtbG4wMzZuWDJ6QzNoRWkrL1kyYlNPTjFDYnFnSjlxOGs9.pdf)"
       },
       { time: "15:30", title: "錦市場散步", description: "體驗京都廚房，吃章魚燒、豆乳甜甜圈", location: "錦市場", icon: "Utensils" },
       { time: "18:00", title: "鴨川納涼", description: "在河岸邊散步，享受晚餐", icon: "Sunset", location: "鴨川" },
@@ -72,14 +72,13 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/eKNtsDVV9RgUmwnQ9"
     },
     events: [
-      { time: "09:00", title: "清水寺", description: "世界遺產，清水舞台景色絕美 (早起避免人潮)", highlight: true, icon: "Landmark", location: "清水寺" },
-      { time: "11:30", title: "二年坂、三年坂", description: "古色古香的街道，買伴手禮", icon: "ShoppingBag", location: "三年坂" },
-      { time: "13:00", title: "午餐：湯豆腐", description: "順正湯豆腐 (已預約)", icon: "Utensils", location: "順正湯豆腐" },
-      { time: "15:00", title: "伏見稻荷大社", description: "千本鳥居拍照", icon: "Camera", location: "伏見稻荷大社" },
+      { time: "12:30", title: "叙々苑 游玄亭 京都", description: "妹妹生日媽咪請客吃燒肉！Wish her a happy birthday! 🎂", icon: "Gift", location: "游玄亭 京都",
+        notes: "[せんちくてい 預約詳情](https://restaurant.ikyu.com/me/reservations/IR0502164545)",
+       },
     ]
   },
   {
-    dayTitle: "嵐山自然風光",
+    dayTitle: "清水寺奈良一日遊",
     date: "2025-12-19",
     weather: [
       { time: "09:00", temp: "8°", condition: "Cloudy" },
@@ -94,14 +93,22 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/MEkbi29fXS5QZFmc7"
     },
     events: [
-      { time: "09:30", title: "嵐山竹林之道", description: "享受竹林清幽氛圍", icon: "Trees", location: "嵐山竹林小徑" },
-      { time: "11:00", title: "天龍寺", description: "曹源池庭園賞景", icon: "Flower", location: "天龍寺" },
-      { time: "12:30", title: "嵐山大街午餐", description: "廣川鰻魚飯 (若排隊太長則換家)", icon: "Utensils", location: "嵐山廣川" },
-      { time: "14:30", title: "渡月橋", description: "散步拍照", icon: "Camera", location: "渡月橋" },
+      {
+        time: "09:50", 
+        title: "集合出發", 
+        description: "吃完早餐自行與導遊會合", 
+        icon: "Bus",
+        location: "京都站八條口-站前觀光巴士停車場",
+        locationUrl: "https://maps.app.goo.gl/mGie1qukhtxYBAaKA",
+        notes: "出行前一天 20:00-21:00 會收到郵件，告知第二天的導遊及車輛信息，請及時查看！\n\n（請查看 [行程＆景點介紹](https://www.klook.com/zh-TW/activity/87236-kyoto-tour-nara/?spm=SearchResult.SearchResult_LIST&clickId=a7bc1e4501)）\n\n[憑證](https://www.klook.com/zh-TW/voucher-new/175ec6f2-b2e0-4667-4e4a-5b73d8f3c335?lang=zh_TW&spm=BookingDetail.SeeVoucher&clickId=d450135217)",
+      },
+      { time: "10:00", title: "清水寺、祇園、二年坂、三年坂、八阪神社", description: "午餐要自理ㄛ", icon: "Landmark", location: "清水寺" },
+      { time: "15:30", title: "奈良公園、東大寺", description: "餵鹿", icon: "Flower", location: "奈良公園" },
+      { time: "18:00", title: "回到大阪心齋橋", description: "散步拍照", icon: "Landmark", location: "心齋橋" },
     ]
   },
   {
-    dayTitle: "大阪活力一日遊",
+    dayTitle: "爸爸想去姬路城",
     date: "2025-12-20",
     weather: [
       { time: "09:00", temp: "10°", condition: "Sunny" },
@@ -121,7 +128,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ]
   },
   {
-    dayTitle: "環球影城一日遊",
+    dayTitle: "大阪一日遊",
     date: "2025-12-21",
     weather: [
       { time: "08:00", temp: "8°", condition: "Sunny" },
@@ -141,7 +148,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ]
   },
   {
-    dayTitle: "快樂賦歸",
+    dayTitle: "回家顧孫or上班啦",
     date: "2025-12-22",
     weather: [
       { time: "08:00", temp: "7°", condition: "Cloudy" },

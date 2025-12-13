@@ -1,6 +1,6 @@
 import { Expense, Payer, ExpenseCategory } from '../types';
 
-const STORAGE_KEY = 'kyoto_trip_expenses_v2';
+const STORAGE_KEY = 'kyoto_trip_expenses_v3';
 
 const INITIAL_DATA: Expense[] = [
   {
