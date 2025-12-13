@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>🍣 跟爹娘遊京版</title>
+    
+    <!-- PWA / iOS Web App Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="跟爹娘遊京版">
+    <meta name="theme-color" content="#fff1f2">
+    
+    <!-- App Icons -->
+    <link rel="apple-touch-icon" href="./app_icon.jpg">
+    <link rel="icon" type="image/png" href="./app_icon.jpg">
+    <link rel="manifest" href="./manifest.json">
+
+    <title>跟爹娘遊京阪</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
@@ -81,11 +93,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-stone-50 text-stone-800 antialiased selection:bg-sakura-200">
     <div id="root"></div>
-    <!-- 重要：這是讓瀏覽器知道程式進入點的關鍵 -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
