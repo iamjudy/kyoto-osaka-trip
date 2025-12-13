@@ -8,7 +8,7 @@ export enum Tab {
 export enum Payer {
   ME = '我',
   DAD = '爸爸',
-  MOM = '媽媽'
+  MOM = '媽咪'
 }
 
 export enum ExpenseCategory {
@@ -58,6 +58,7 @@ export interface ItineraryEvent {
   description: string;
   location?: string;
   locationUrl?: string; // Support direct Google Maps URL
+  notes?: string; // New field for user custom notes/links
   icon?: string; // Icon name
   highlight?: boolean;
   flight?: FlightInfo; // Optional flight details

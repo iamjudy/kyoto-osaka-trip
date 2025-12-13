@@ -46,7 +46,13 @@ export const ITINERARY_DATA: DayItinerary[] = [
           co2: "135 kg CO2e"
         }
       },
-      { time: "13:30", title: "前往京都", description: "搭乘 HARUKA 關空特急前往京都車站", icon: "Train" },
+      { 
+        time: "13:30", 
+        title: "前往京都", 
+        description: "搭乘 HARUKA 關空特急前往京都車站", 
+        icon: "Train",
+        notes: "入境關西機場T1後，搭乘手扶梯上2樓 & 走空橋去關西機場車站 & 到 綠色售票機 換票\n\n（請查看 [HARUKA 實體票兌換說明](https://res.klook.com/image/upload/oct_AID18400_-_Redeem_Haruka_Ticket_l2vybu.pdf?spm=BookingDetail.Redemption%20information.Link&clickId=4934073335&_gl=1*1a3b7ul*_gcl_aw*R0NMLjE3NjMzMDUyODUuQ2owS0NRaUFpZWJJQmhEbUFSSXNBRThQR05MTUZqWkpCcUt0T2tFdy1QTE5PN1pIVHU0bmVPbzQzN3lEWjRzdTZfOTd2LXJkTDVNSEg1a2FBdnFfRUFMd193Y0I.*_gcl_au*MTIyNDM4MDc0My4xNzYxNzQ5MTE5*_ga*MTc5NzE0NjA0My4xNzMwMjg5NjUw*_ga_V8S4KC8ZXR*czE3NjUyOTMwMDckbzI0JGcxJHQxNzY1MjkzMTE1JGo1OSRsMCRoODU1OTAyNzM1)）\n\n[憑證下載 (PDF)](https://www.klook.com/klvoucher/YU11dWhZRGVVYWtvU3g4eGE5K1RrVzJRSGtSWExJVkl3dncxWmh0UEh2TTFJWTQ0eGJyVTNRK1JKRUhlRlJtYXlLb2JnVisxMFVtbG4wMzZuWDJ6QzNoRWkrL1kyYlNPTjFDYnFnSjlxOGs9.pdf)"
+      },
       { time: "15:30", title: "錦市場散步", description: "體驗京都廚房，吃章魚燒、豆乳甜甜圈", location: "錦市場", icon: "Utensils" },
       { time: "18:00", title: "鴨川納涼", description: "在河岸邊散步，享受晚餐", icon: "Sunset", location: "鴨川" },
     ]

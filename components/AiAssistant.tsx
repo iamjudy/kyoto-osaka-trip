@@ -10,7 +10,7 @@ interface Message {
 
 export const AiAssistant: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'assistant', text: '阿北阿木好！我是這次來幫妹妹的專屬導遊。關於京都、大阪的行程、天氣或美食，都可以問我喔！' }
+    { id: '1', role: 'assistant', text: '阿北阿木好！我是這次來幫妹妹的專屬導遊。關於京都、大阪的行程、天氣或美食，都可以問我喔！🤗' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);

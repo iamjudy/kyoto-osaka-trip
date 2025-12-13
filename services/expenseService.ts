@@ -34,6 +34,22 @@ const INITIAL_DATA: Expense[] = [
     payer: Payer.DAD,
     date: new Date('2025-12-07').toISOString(),
     category: ExpenseCategory.TRANSPORT
+  },
+  {
+    id: 'init-5',
+    item: '東急大阪卓越大飯店',
+    amount: 35151,
+    payer: Payer.DAD,
+    date: new Date('2025-12-07').toISOString(),
+    category: ExpenseCategory.HOTEL
+  },
+  {
+    id: 'init-6',
+    item: 'e-sim',
+    amount: 897,
+    payer: Payer.ME,
+    date: new Date('2025-12-10').toISOString(),
+    category: ExpenseCategory.ENTERTAINMENT
   }
 ];
 

@@ -1,9 +1,10 @@
+/// <reference types="vite/client" />
 import { GoogleGenAI } from "@google/genai";
 import { ITINERARY_DATA } from '../constants';
 
-// We'll use a safer approach for the API key in a real app (backend proxy),
-// but for this specific client-side demo request:
-const apiKey = process.env.API_KEY || ''; 
+// Access API key from Vite environment variables safely
+// Using optional chaining (?.) prevents crashes if import.meta.env is undefined in some environments
+const apiKey = import.meta.env?.VITE_GOOGLE_API_KEY || ''; 
 
 const ai = new GoogleGenAI({ apiKey });
 
@@ -24,7 +25,7 @@ ${JSON.stringify(ITINERARY_DATA)}
 
 export const chatWithGemini = async (userMessage: string): Promise<string> => {
   if (!apiKey) {
-    return "請先設定 API Key 才能使用 AI 助手功能喔！(在程式碼中設定 process.env.API_KEY)";
+    return "請先設定 API Key 才能使用 AI 助手功能喔！(請確認 GitHub Secrets 或 .env 檔案)";
   }
 
   try {

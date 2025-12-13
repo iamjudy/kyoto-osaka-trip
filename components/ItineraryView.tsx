@@ -1,11 +1,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ITINERARY_DATA } from '../constants';
-import { MapPin, Camera, Coffee, ShoppingBag, Train, Plane, Utensils, Landmark, Moon, Sun, Cloud, CloudRain, CloudSun, BedDouble, ChevronDown, ChevronUp } from 'lucide-react';
+import { MapPin, Camera, Coffee, ShoppingBag, Train, Plane, Utensils, Landmark, Moon, Sun, Cloud, CloudRain, CloudSun, BedDouble, ChevronDown, ChevronUp, StickyNote } from 'lucide-react';
 import { weatherService } from '../services/weatherService';
 import { WeatherForecast, FlightInfo } from '../types';
 
-const IconMap: Record<string, React.ReactNode> = {
+const IconMap: Record<string, React.ReactElement> = {
   Plane: <Plane size={18} />,
   Train: <Train size={18} />,
   Utensils: <Utensils size={18} />,
@@ -28,6 +28,46 @@ const WeatherIcon: Record<string, React.ReactNode> = {
   Cloudy: <Cloud size={24} className="text-stone-400 fill-stone-100" />,
   PartlyCloudy: <CloudSun size={24} className="text-amber-400" />,
   Rain: <CloudRain size={24} className="text-blue-400" />
+};
+
+// Helper function to render text with markdown-style links [Text](URL)
+const renderMarkdownText = (text: string) => {
+  // Regex to match [Text](URL)
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  
+  let lastIndex = 0;
+  // Explicitly type the array to hold both strings and React Elements
+  const elements: React.ReactNode[] = [];
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the link
+    if (match.index > lastIndex) {
+      elements.push(text.substring(lastIndex, match.index));
+    }
+    
+    // Add the link component
+    elements.push(
+      <a 
+        key={match.index} 
+        href={match[2]} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="text-blue-600 font-bold underline decoration-blue-300 hover:text-blue-800 break-words"
+      >
+        {match[1]}
+      </a>
+    );
+    
+    lastIndex = regex.lastIndex;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    elements.push(text.substring(lastIndex));
+  }
+
+  return elements.length > 0 ? elements : text;
 };
 
 // Flight Card Component
@@ -126,7 +166,7 @@ export const ItineraryView: React.FC = () => {
   };
 
   return (
-    <div className="pb-24 pt-2 animate-fade-in bg-stone-50 min-h-full">
+    <div className="pb-8 pt-2 animate-fade-in bg-stone-50 min-h-full">
       {/* Header */}
       <div className="px-6 pt-4 pb-2 text-center">
         <h2 className="text-xs font-bold tracking-widest text-stone-400 mb-1 uppercase font-sans">Family Trip</h2>
@@ -198,8 +238,8 @@ export const ItineraryView: React.FC = () => {
                 <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-100 relative overflow-hidden group">
                   {/* Icon Watermark */}
                   <div className="absolute -right-2 -bottom-2 text-stone-50 opacity-50 transform rotate-12 group-hover:scale-110 transition-transform">
-                     {event.icon && React.isValidElement(IconMap[event.icon]) && 
-                        React.cloneElement(IconMap[event.icon] as React.ReactElement<{ size: number }>, { size: 64 })}
+                     {event.icon && IconMap[event.icon] && 
+                        React.cloneElement(IconMap[event.icon], { size: 64 } as any)}
                   </div>
 
                   <h4 className={`text-base font-bold mb-1 relative z-10 font-serif ${event.highlight ? 'text-sakura-600' : 'text-stone-800'}`}>
@@ -221,6 +261,19 @@ export const ItineraryView: React.FC = () => {
                         {event.location}
                       </a>
                     </div>
+                  )}
+
+                  {/* Render Notes if available */}
+                  {event.notes && (
+                     <div className="mt-3 bg-yellow-50 p-3 rounded-lg border border-yellow-100 text-xs text-stone-600 relative z-10 font-sans">
+                        <div className="flex items-center gap-1 mb-1 font-bold text-yellow-700 uppercase tracking-wider">
+                           <StickyNote size={12} />
+                           <span>Memo</span>
+                        </div>
+                        <div className="whitespace-pre-wrap leading-relaxed">
+                           {renderMarkdownText(event.notes)}
+                        </div>
+                     </div>
                   )}
                   
                   {event.flight && <FlightCard flight={{...event.flight, date: selectedDay.date}} />}

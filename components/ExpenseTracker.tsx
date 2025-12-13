@@ -60,7 +60,7 @@ export const ExpenseTracker: React.FC = () => {
   const COLORS = ['#f43f5e', '#3b82f6', '#10b981']; // Me (Red), Dad (Blue), Mom (Green)
 
   return (
-    <div className="pb-24 pt-4 px-4 space-y-6 animate-fade-in bg-stone-50 min-h-full">
+    <div className="pb-8 pt-4 px-4 space-y-6 animate-fade-in bg-stone-50 min-h-full">
        <div className="text-center space-y-2 mb-2">
         <h2 className="text-2xl font-bold text-stone-800">記帳小幫手</h2>
         <p className="text-stone-500 text-sm">輕鬆記錄每筆開銷</p>
