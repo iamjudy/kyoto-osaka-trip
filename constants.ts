@@ -54,7 +54,9 @@ export const ITINERARY_DATA: DayItinerary[] = [
         notes: "入境關西機場T1後，搭乘手扶梯上2樓 & 走空橋去關西機場車站 & 到 綠色售票機 換票\n\n（請查看 [HARUKA 實體票兌換說明](https://res.klook.com/image/upload/oct_AID18400_-_Redeem_Haruka_Ticket_l2vybu.pdf?spm=BookingDetail.Redemption%20information.Link&clickId=4934073335&_gl=1*1a3b7ul*_gcl_aw*R0NMLjE3NjMzMDUyODUuQ2owS0NRaUFpZWJJQmhEbUFSSXNBRThQR05MTUZqWkpCcUt0T2tFdy1QTE5PN1pIVHU0bmVPbzQzN3lEWjRzdTZfOTd2LXJkTDVNSEg1a2FBdnFfRUFMd193Y0I.*_gcl_au*MTIyNDM4MDc0My4xNzYxNzQ5MTE5*_ga*MTc5NzE0NjA0My4xNzMwMjg5NjUw*_ga_V8S4KC8ZXR*czE3NjUyOTMwMDckbzI0JGcxJHQxNzY1MjkzMTE1JGo1OSRsMCRoODU1OTAyNzM1)）\n\n[憑證](https://www.klook.com/klvoucher/YU11dWhZRGVVYWtvU3g4eGE5K1RrVzJRSGtSWExJVkl3dncxWmh0UEh2TTFJWTQ0eGJyVTNRK1JKRUhlRlJtYXlLb2JnVisxMFVtbG4wMzZuWDJ6QzNoRWkrL1kyYlNPTjFDYnFnSjlxOGs9.pdf)"
       },
       { time: "15:30", title: "錦市場散步", description: "體驗京都廚房，吃章魚燒、豆乳甜甜圈", location: "錦市場", icon: "Utensils" },
-      { time: "18:00", title: "鴨川納涼", description: "在河岸邊散步，享受晚餐", icon: "Sunset", location: "鴨川" },
+      { time: "18:00", title: "鴨川納涼", description: "在河岸邊散步，享受晚餐", icon: "Sunset", location: "鴨川",
+        notes: "晚餐可選 [麵屋豬一](https://maps.app.goo.gl/QrMTszgHn4ryyyYz9)、[三嶋亭壽喜燒](https://share.google/92o0O10B1bgh9oA6r)"
+       },
     ]
   },
   {
@@ -101,10 +103,11 @@ export const ITINERARY_DATA: DayItinerary[] = [
         location: "京都站八條口-站前觀光巴士停車場",
         locationUrl: "https://maps.app.goo.gl/mGie1qukhtxYBAaKA",
         notes: "出行前一天 20:00-21:00 會收到郵件，告知第二天的導遊及車輛信息，請及時查看！\n\n（請查看 [行程＆景點介紹](https://www.klook.com/zh-TW/activity/87236-kyoto-tour-nara/?spm=SearchResult.SearchResult_LIST&clickId=a7bc1e4501)）\n\n[憑證](https://www.klook.com/zh-TW/voucher-new/175ec6f2-b2e0-4667-4e4a-5b73d8f3c335?lang=zh_TW&spm=BookingDetail.SeeVoucher&clickId=d450135217)",
+        image: "https://static.gltjp.com/glt/data/article/21000/20372/20230817_145716_42bf4910_w1920.webp",
       },
-      { time: "10:00", title: "清水寺、祇園、二年坂、三年坂、八阪神社", description: "午餐要自理ㄛ", icon: "Landmark", location: "清水寺" },
+      { time: "10:00", title: "清水寺、祇園、三年坂、八阪神社", description: "午餐要自理ㄛ", icon: "Landmark", location: "清水寺" },
       { time: "15:30", title: "奈良公園、東大寺", description: "餵鹿", icon: "Flower", location: "奈良公園" },
-      { time: "18:00", title: "回到大阪心齋橋", description: "散步拍照", icon: "Landmark", location: "心齋橋" },
+      { time: "18:00", title: "回到大阪心齋橋", description: "先去飯店放行李再出來覓食買鞋子", icon: "Landmark", location: "心齋橋" },
     ]
   },
   {
@@ -122,13 +125,15 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/MEkbi29fXS5QZFmc7"
     },
     events: [
-      { time: "10:00", title: "大阪城公園", description: "參觀天守閣，歷史巡禮", icon: "Castle", location: "大阪城天守閣" },
-      { time: "13:00", title: "心齋橋購物", description: "藥妝店採購，跑跑人看板拍照", icon: "ShoppingBag", location: "心齋橋筋商店街" },
-      { time: "17:00", title: "梅田藍天大廈", description: "欣賞大阪夜景", highlight: true, icon: "Moon", location: "梅田藍天大廈" },
+      { time: "08:30", title: "姬路城", description: "參觀姬路城，歷史巡禮", icon: "Castle", location: "姬路" },
+      { time: "15:00", title: "通天閣", description: "參觀天守閣，歷史巡禮", icon: "Castle", location: "通天閣" },
+      { time: "16:00", title: "新世界本通商店街", description: "購物隨便亂逛", icon: "ShoppingBag", location: "新世界本通商店街" },
+      { time: "17:00", title: "大阪聖誕市集", description: "體驗一下節慶氛圍", icon: "Gift", location: "TEN-SHIBA" },
+      { time: "18:00", title: "牛舌檸檬 or 拉麵", description: "欣賞大阪夜景", highlight: true, icon: "Moon", location: "難波" },
     ]
   },
   {
-    dayTitle: "大阪一日遊",
+    dayTitle: "大阪觀光客",
     date: "2025-12-21",
     weather: [
       { time: "08:00", temp: "8°", condition: "Sunny" },
@@ -142,9 +147,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/MEkbi29fXS5QZFmc7"
     },
     events: [
-      { time: "08:30", title: "USJ 入園", description: "直衝瑪利歐園區", icon: "Castle", location: "日本環球影城" },
-      { time: "12:00", title: "園區午餐", description: "小兵漢堡", icon: "Utensils" },
-      { time: "18:00", title: "哈利波特魔法世界", description: "夜晚霍格華茲燈光秀", icon: "Moon" },
+      { time: "09:00", title: "勝尾寺", description: "搭乘 御堂筋線 (或北大阪急行) 至終點站「箕面萱野站」(M06)", icon: "Train", location: "勝尾寺" },
     ]
   },
   {
@@ -158,8 +161,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { time: "16:00", temp: "7°", condition: "Rain" }
     ],
     events: [
-      { time: "09:00", title: "最後採買", description: "便利商店、車站伴手禮", icon: "Gift" },
-      { time: "10:00", title: "前往機場", description: "搭乘利木津巴士或南海電鐵", icon: "Bus" },
+      { time: "08:30", title: "前往機場", description: "搭乘利木津巴士或南海電鐵", icon: "Train", location: "關西國際機場" },
       { 
         time: "12:20", 
         title: "大阪 前往 台北", 

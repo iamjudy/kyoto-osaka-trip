@@ -1,6 +1,6 @@
 import { Expense, Payer, ExpenseCategory } from '../types';
 
-const STORAGE_KEY = 'kyoto_trip_expenses_v3';
+const STORAGE_KEY = 'kyoto_trip_expenses_v4';
 
 const INITIAL_DATA: Expense[] = [
   {
@@ -39,7 +39,7 @@ const INITIAL_DATA: Expense[] = [
     id: 'init-5',
     item: '東急大阪卓越大飯店',
     amount: 35151,
-    payer: Payer.DAD,
+    payer: Payer.ME,
     date: new Date('2025-12-07').toISOString(),
     category: ExpenseCategory.HOTEL
   },
